@@ -1,0 +1,4 @@
+<form #regform='ngForm' class="form" (ngSubmit)="onSubmit(regform)">
+    <input type="text" name="title" [(ngModel)]="title" placeholder="Add Todo..." required ngModel>
+    <input type="submit" value="Add" class="btn" [disabled]="!regform.valid">
+</form>

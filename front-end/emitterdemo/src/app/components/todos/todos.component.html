@@ -1,0 +1,7 @@
+<div class="container">
+    
+    <app-add-todo (addTodoItem)="getNewTodoItem($event)"></app-add-todo>
+<app-todo-item *ngFor='let todo of todos' [todo]='todo' (timeObj)="getData($event)" (deleteTodoItem)="getDeleteTodoItem($event)" >
+</app-todo-item>
+<simple-notifications></simple-notifications>
+</div>

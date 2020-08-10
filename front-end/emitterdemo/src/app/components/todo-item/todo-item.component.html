@@ -1,0 +1,27 @@
+<div [ngClass]=setClasses()>
+
+
+    <input (change)='onToggle(todo)' type="checkbox" [checked]=completed_status_flag>
+    {{todo.title}}
+    <br>
+    <input (click)='scheduleTask($event,todo)' type="checkbox" [checked]=scheduled_status_flag>
+    <h6 style="display:inline-block"> Schedule</h6>
+
+
+    <input (blur)='getTime($event,todo)' type="time" id="exampleInput" name="input" value={{todoTime}}
+        style="margin-right: 10px;" placeholder="HH:mm:ss" min="08:00:00" max="17:00:00" required />
+    <br>
+    <form #updateform='ngForm' *ngIf='editRequest' (ngSubmit)="onUpdate(updateform,todo)" class="update-form-class">
+        <input  type="text" id="updateTodoTitleID" name="title_update" required ngModel>
+    <!-- <button type="submit" (click)='onUpdate(todo)' *ngIf='editRequest' class="update">Update</button> -->
+    <button type="submit"  class="update" [disabled]="!updateform.valid">Update</button>
+    </form>
+
+    <button (click)='onDelete(todo)' class="del">Delete</button>
+
+    <button (click)='onEdit(todo)'  class="edit">Edit</button>
+
+
+
+
+</div>
